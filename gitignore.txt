@@ -1,0 +1,10 @@
+**/__pycache__
+.vscode/
+*.zip
+*.log*
+LP.py
+*.bat
+_version.py
+*.svg
+database.json
+pylama.ini
