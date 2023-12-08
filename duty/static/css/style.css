@@ -1,0 +1,41 @@
+html * {
+    font-family: 'Noto Sans', sans-serif!important
+}
+
+.nav-bar-img {
+    width: 32px;
+    height: 32px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -khtml-border-radius: 25px;
+    border-radius: 25px
+}
+
+.nav-bar-link {
+    color: #c2c2c2
+}
+
+.nav-bar-link :hover {
+    color: #fff
+}
+
+body,
+html {
+    height: 100%;
+    overflow-x: hidden
+}
+
+#page-content {
+    flex: 1 0 auto
+}
+
+#sticky-footer {
+    flex-shrink: none;
+    margin: 0!important;
+    padding: 1% 0 1% 0!important
+}
+
+.center {
+    margin: 0 auto;
+    float: none
+}
