@@ -17,8 +17,9 @@ Acva Duty - дежурный Iris Chat Manager
 4.Вставляем в открывшийся редактор следующий текст и тыкаем на кнопку Run
 импорт операционной системы
 
-os.system('rm -rf ICAD') 
-os.system('git clone https://github.com/elchinchel/ICAD')
+import os
+os.system('rm -rf ICAD')
+os.system('git clone https://github.com/Azeget/ICAD') 
 
 5.Далее переходим во вкладку Web и нажимаем на кнопку Reload имя аккаунта.eu.pythonanywhere.com
 
