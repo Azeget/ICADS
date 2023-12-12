@@ -1,0 +1,15 @@
+[ядро]
+ editor = vim
+ pager = less
+
+[цвета]
+ diff = авто
+ Статус = Авто
+ филиал = авто
+ interactive = авто
+ pager = true
+ ui = авто
+
+[псевдоним]
+ hist = log --graph --oneline --decorate
+ st = status
