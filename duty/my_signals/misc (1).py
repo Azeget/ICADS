@@ -16,12 +16,20 @@ from duty.objects import dp, MySignalEvent
 @dp.my_signal_event_register('хелп', 'help')
 def a(event: MySignalEvent) -> str:
     event.edit(f'''
-        📗Команды IrCA Duty: vk.com/@ircaduty-comands
-        ⚙ Установка: https://vk.cc/c3coi7
-        💻 Исходный код: https://vk.cc/bZPeP4
-        🔧 Установка LP: https://vk.cc/c3cpNq
-        📈 Команды LP: https://vk.cc/c3cpUH
-        📓 Ваша админ панель: {event.db.host}
+         📗Помощь по использованию дежурного Acva
+
+         🌐Сообщество Acva : https://vk.com/acva_duty
+
+         📝Список команд : https://vk.cc/ctcfdn
+
+         👥Помощники ТП Acva :
+         1.https://vk.com/mavan_demon - Агент
+
+         🗣Чат общения : https://vk.cc/ctcfzk
+
+         ✉️Чат ТП Acva : https://vk.cc/ctcfvk
+         
+         📓 Ваша админ панель: {event.db.host}
     '''.replace('    ', ''))
     return "ok"
 
