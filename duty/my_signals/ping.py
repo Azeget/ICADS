@@ -19,10 +19,10 @@ def ping(event: MySignalEvent) -> str:
     delta = round(c_time - event.msg['date'], 2)
 
     event.msg_op(2, format_response(event.responses['ping_myself'], 
-            время=delta,
-            ответ=pings.get(event.command),
-            обработано=round(datetime.now().timestamp() - event.time - event.vk_response_time, 2),  # noqa
-            пингвк=round(event.vk_response_time, 2)
+            ⌚время=delta,
+            📩ответ=pings.get(event.command),
+            ⚙️обработано=round(datetime.now().timestamp() - event.time - event.vk_response_time, 2),  # noqa
+            🛋пингвк=round(event.vk_response_time, 2)
         ))
     return "ok"
 
