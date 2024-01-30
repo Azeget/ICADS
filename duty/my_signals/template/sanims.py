@@ -8,7 +8,7 @@ from .template import delete_template
 def anim_create(event: MySignalEvent) -> str:
     name = ' '.join(event.args).lower()
     if not name:
-        event.msg_op(2, "❗ Не указано название")
+        event.msg_op(2, "❗А название где.....")
         return "ok"
 
     if not event.payload:
@@ -32,11 +32,11 @@ def anim_create(event: MySignalEvent) -> str:
 @dp.my_signal_event_register('анимки')
 def anim_list(event: MySignalEvent) -> str:
     if event.db.anims:
-        message = '📃 Список анимок:'
+        message = '📃 Список всех анимок:'
         for i, t in enumerate(event.db.anims, 1):
             message += f"\n{i}. {t['name']}"
     else:
-        message = ('👀 Нет ни одной анимки... '
+        message = ('👀 Нема.Нет ни одной анимки... '
                    'Создать можно на сайте или командой +анимка')
     event.msg_op(2, message)
     return "ok"
@@ -47,13 +47,13 @@ def anim_list(event: MySignalEvent) -> str:
 def anim_delete(event: MySignalEvent) -> str:
     name = ' '.join(event.args).lower()
     if not name:
-        event.msg_op(2, "❗ Не указано название")
+        event.msg_op(2, "❗А название где....")
         return "ok"
     event.db.anims, exist = delete_template(name, event.db.anims)
     if exist:
         msg = f'✅ Анимка "{name}" удалена'
     else:
-        msg = f'⚠️ Анимка "{name}" не найдена'
+        msg = f'⚠️ Не нашол такой "{name}" анимки'
     event.msg_op(2, msg, delete=2)
     return "ok"
 
