@@ -10,26 +10,25 @@ from duty.utils import find_mention_by_event
 from duty.api_utils import get_last_th_msgs
 from duty.objects import dp, MySignalEvent
 
-
-# Автор: https://vk.com/id570532674, доработал: https://vk.com/id194861150
 @dp.longpoll_event_register('хелп', 'help')
 @dp.my_signal_event_register('хелп', 'help')
 def a(event: MySignalEvent) -> str:
     event.edit(f'''
-         📗Помощь по использованию дежурного Acva
+     🛋Помощь по использованию Page Bot🛋
 
-         🌐Сообщество Acva : https://vk.com/acva_duty
+     🦊Приветик🦊
 
-         📝Список команд : https://vk.cc/ctcfdn
+     🛏Сообщество : https://vk.com/alias_bot
 
-         👥Помощники ТП Acva :
-         1.https://vk.com/mavan_demon - Агент
+     📲Установка : https://vk.com/@alias_bot-ustanovka
 
-         🗣Чат общения : https://vk.cc/ctcfzk
-
-         ✉️Чат ТП Acva : https://vk.cc/ctcfvk
+     📖Список команд :
+     Прифекс дежурного : .д
+     Прифекс сигналов : .с
+     Прифекс лп : .л
+     ⚠️Лп модуль не работает, в разработке⚠️
          
-         📓 Ваша админ панель: {event.db.host}
+     💻 Ваша админ панель: {event.db.host}
     '''.replace('    ', ''))
     return "ok"
 
