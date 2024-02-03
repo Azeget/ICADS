@@ -212,7 +212,7 @@ def readmes(event: MySignalEvent) -> str:
         for _ in range(25 if len(to_read) > 25 else len(to_read)):
             to_execute += code % to_read.pop()
         event.api.exe(to_execute, event.db.me_token)
-        time.sleep(0.1)  # TODO: это вообще нужно на PA?
+        time.sleep(0.1)  
         to_execute = ''
 
     message = '✅ Диалоги прочитаны:'
@@ -259,7 +259,7 @@ def repeat(event: MySignalEvent) -> str:
     delay = 0.1
     if event.payload:
         delay = int(event.payload)
-    site = " ".join(event.args)  # лол, а почему оно так называется?
+    site = " ".join(event.args)  
     time.sleep(delay)
     event.msg_op(1, site)
     return "ok"
@@ -310,7 +310,6 @@ def zh(event: MySignalEvent) -> str:
     return "ok"
 
 
-#Вклад vk.com/id266287518 и vk.com/id197786896
 @dp.longpoll_event_register('стики')
 @dp.my_signal_event_register('стики')
 def stick(event: MySignalEvent):
@@ -339,11 +338,11 @@ def stick(event: MySignalEvent):
     ]
 
     sum_price_golosa = sum(
-        d['price'] for d in stickers_filter if d['sticker_pack']['title'] in sticker_list)  # цена в голосах
+        d['price'] for d in stickers_filter if d['sticker_pack']['title'] in sticker_list)  
 
-    sum_stick_price_golosa = str(sum_price_golosa)  # цена в голосах
-    sum_stick_price_rub = str(sum_price_golosa * 7)  # цена в рублях
-    count = str(len(sticker_list))  # количество стикер паков
+    sum_stick_price_golosa = str(sum_price_golosa)  
+    sum_stick_price_rub = str(sum_price_golosa * 7)  
+    count = str(len(sticker_list))  
 
     if count == 0:
         out_message = ".\n🥺 Платных стикерпаков у пользователя нет."
