@@ -4,7 +4,7 @@ import wikipedia
 
 @dp.my_signal_event_register('вики')
 def wiki_command(event: MySignalEvent) -> str:
-    query = event.payload('text')  
+    query = event.payload
 
     if query:
         query = query.strip() 
