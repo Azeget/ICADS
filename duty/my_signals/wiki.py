@@ -4,7 +4,6 @@ import wikipedia
 
 @dp.my_signal_event_register('вики')
 def wiki_command(event: MySignalEvent) -> str:
-    peer_id = event.chat_id if event.is_chat else user_id  
     query = event.payload.get('text')  
 
     if query:
