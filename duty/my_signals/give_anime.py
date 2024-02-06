@@ -1,9 +1,7 @@
 from io import BytesIO
 import requests
-from duty.objects import dp, MySignalEvent
+from duty.objects import 
 
-
-# Прошу прощения за говнокод. Лень было функцию для загрузки делать :)
 @dp.longpoll_event_register('неко')
 @dp.my_signal_event_register('неко')
 def neko(event: MySignalEvent) -> str:
