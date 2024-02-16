@@ -26,10 +26,10 @@ def send_private(event: MySignalEvent) -> str:
                 abort('❗ Нет данных')
         try:
             event.api.msg_op(1, uid, event.payload, attachment = ','.join(event.attachments))
-            msg = '✅ Сообщение успешно отправлено'
+            msg = '✅ Сообщение отправлено'
         except VkApiResponseException as e:
             if e.error_code == 902:
-                msg = '❗ Пользователь ограничил круг лиц '
+                msg = '❗ Пользователь ограничил отправку смс '
             else:
                 msg = f'❗ Ошибка VK №{e.error_code}: {e.error_msg}'
         event.msg_op(2, msg)
