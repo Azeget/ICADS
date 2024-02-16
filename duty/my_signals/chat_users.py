@@ -85,15 +85,15 @@ def chat_info(event: MySignalEvent, users: List[dict], groups: List[dict]):
         elif member.get('is_admin') is True:
             admins.append('\n-- ' + format_push(member))
     msg = f"""
-    Беседа: {event.chat.name}
-    Создатель: {format_push(owner)}
+    Название чата: {event.chat.name}
+    Создатель чата: {format_push(owner)}
     Iris ID: {event.chat.iris_id}
     Я дежурный в чате: {'✅' if event.chat.installed else '❌'}
     Население чата: {len(users) + len(groups)}
-    Участников: {len(users)}
+    Участников чата: {len(users)}
     Ботов: {len(groups)}
 
-    Администраторы:{''.join(admins) if admins else ' НЕМА'}
+    Админы чата:{''.join(admins) if admins else ' НЕМА'}
     """.replace('    ', '')
     event.msg_op(1, msg, disable_mentions=1, reply_to=event.msg['id'])
     return "ok"
