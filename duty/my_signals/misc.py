@@ -14,15 +14,12 @@ from duty.objects import dp, MySignalEvent
 @dp.my_signal_event_register('хелп', 'help')
 def a(event: MySignalEvent) -> str:
     event.edit(f'''
-     🛋Помощь по использованию Page Bot🛋
+     🛋Помощь по использованию бота
 
      🦊Приветик🦊
 
-     🛏Сообщество : https://vk.com/alias_bot
+     🛏Сообщество : https://vk.com/personal_bot_lp
 
-     📲Установка : https://vk.com/@alias_bot-ustanovka
-
-     📖Список команд :https://vk.com/@alias_bot-komandy
      Прифекс дежурного : .д
      Прифекс сигналов : .с
      Прифекс лп : .л
