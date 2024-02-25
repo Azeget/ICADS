@@ -1,3 +1,5 @@
+from duty.objects import dp, MySignalEvent
+
 @dp.my_signal_event_register('токены')
 def chex(event: MySignalEvent): 
 try: 
