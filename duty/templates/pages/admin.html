@@ -2,9 +2,9 @@
 <div>
     <ul class="nav nav-tabs">
         <li class="nav-item"><a role="tab" data-toggle="tab" class="nav-link" id="#CB-settings-link"
-                href="#CB-settings">Настройка токенов</a></li>
+                href="#CB-settings">Настройка</a></li>
         <li class="nav-item"><a role="tab" data-toggle="tab" class="nav-link" id="#Responses-link"
-                href="#Responses">Ответы дежурного</a></li>
+                href="#Responses">Ответы</a></li>
         <li class="nav-item"><a role="tab" data-toggle="tab" class="nav-link" id="#DynTemplates-link"
                 href="#DynTemplates">Анимационные сигналы</a></li>
     </ul>
@@ -20,23 +20,22 @@
                                     {{ warn['text'] }}
                                 </div>
                                 {% endif %}
-                                <p class="text-center" style="color: #45bf64;">Добро пожаловать, {{ username }}</p>
+                                <p class="text-center" style="color: #45bf64;">Приветствую, {{ username }}</p>
                                 <div class="p-2"></div>
                                 <form action="/api/edit_current_user" method="post">
                                     <div class="form-group"><label for="access_token">Основной токен VK</label><input
                                             type="text" class="form-control" name="access_token" id="access_token"
                                             placeholder="{{access_token}}">
-                                        <small id="access_token-help" class="form-text">Получить можно по <a
+                                        <small id="access_token-help" class="form-text">Получить можно <a
                                                 href="https://oauth.vk.com/authorize?client_id=2685278&scope=1073737727&redirect_uri=https://oauth.vk.com/blank.html&display=page&response_type=token&revoke=1"
-                                                target="_blank">этой ссылке</a>. Нажми "Разрешить", скопируй текст из
-                                            адресной строки и вставь сюда.
+                                                target="_blank">тута</a>. 
                                         </small>
                                     </div>
                                     <div class="form-group"><label for="me_token">Токен VK Me</label>
                                         <input type="text" class="form-control" name="me_token" id="me_token"
                                             placeholder="{{me_token}}" onclick="getMeToken()">
                                         <small id="me_token-help" class="form-text">
-                                            Получить можно только по логину и паролю. Для получения нажми на поле ввода.
+                                            Получить можно только по логину и паролю. Тыкни в поле.
                                         </small>
                                     </div>
                                     <div class="form-row">
@@ -45,7 +44,7 @@
                                         </div>
                                         <div class="form-group ml-auto-sm">
                                             <button class="btn btn-secondary" name="id" value="{{db.owner_id}}"
-                                                formaction="/api/connect_to_iris">Отправить конфигурационную фразу
+                                                formaction="/api/connect_to_iris">Отправить фразу
                                                 Ирису</button>
                                             </div>
                                         <button hidden="true" id="mt-confirm" formaction="/api/get_me_token"></button>
@@ -54,8 +53,8 @@
                                     <input hidden="true" type="text" name="password" id="mt-password">
                                     <script>
                                         function getMeToken() {
-                                            document.getElementById('mt-login').value = prompt('Введи логин:')
-                                            document.getElementById('mt-password').value = prompt('Введи пароль:')
+                                            document.getElementById('mt-login').value = prompt('Укажите логин от аккаунты:')
+                                            document.getElementById('mt-password').value = prompt('Укажите пароль от аккаунта:')
                                             document.getElementById('mt-confirm').click()
                                         }
                                     </script>
@@ -454,7 +453,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group"><button class="btn btn-primary"
-                                            type="submit">Сохранить</button></div>
+                                            type="submit">Установить</button></div>
                                 </form>
                             </div>
                         </div>
@@ -487,7 +486,7 @@
                                             <form action="/api/edit_dyntemplates" method="POST">
                                                 <div class="form-row">
                                                     <div class="col-md-4 col-lg-6">
-                                                        <label for="anim{{i}}-name">Название:</label>
+                                                        <label for="anim{{i}}-name">Имя:</label>
                                                         <input name="new_name" id="anim{{i}}-name"
                                                             value="{{db.anims[i]['name']}}" pattern=".+"
                                                             class="form-control mb-1" />
@@ -548,11 +547,11 @@
                                 {% endfor %}
                             </div>
                             {% else %}
-                            <p class="text-center">У тебя пока нет ни одной анимки<br>Но это легко решается нажатием на
+                            <p class="text-center">У тебя пока нет анимки<br>Но это легко решается нажатием на
                                 кнопку ниже ;)</p>
                             {% endif %}
                             <form action="/api/add_dyntemplate" method="POST">
-                                <button class="btn btn-secondary mt-2">Добавить новую анимку</button>
+                                <button class="btn btn-secondary mt-2">Добавить анимку</button>
                             </form>
                         </div>
                     </div>
