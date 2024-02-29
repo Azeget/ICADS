@@ -40,20 +40,3 @@ def iosif_prosti(event: MySignalEvent) -> str:
     event.send(attachment=f'audio_message{att["owner_id"]}_{att["id"]}')
 
 
-@dp.longpoll_event_register('курс')
-@dp.my_signal_event_register('курс')
-def exchange_rate(event: MySignalEvent) -> str:
-    code = event.msg['text'].split()[-1]
-    valutes = requests.get('https://api.lisi4ka.ru/valute').json()
-    if code != 'курс':
-        valute = valutes.get(code.upper())
-        if valute is None:
-            message = 'Центробанк не в курсе о такой валюте...'
-        else:
-            message = f'Курс валюты \"{valute["name"]}\": {valute["value"]}'
-    else:
-        message = (
-            f'$ Курс доллара: {valutes["USD"]["value"]}\n'
-            f'€ Курс евро: {valutes["EUR"]["value"]}'
-        )
-    event.edit(message)
