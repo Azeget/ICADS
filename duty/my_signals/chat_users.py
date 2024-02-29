@@ -27,8 +27,8 @@ def users_getter(event: MySignalEvent) -> Tuple[MySignalEvent, List[dict], List[
     return event, users, groups
 
 
-@dp.longpoll_event_register('люди')
-@dp.my_signal_event_register('люди')
+@dp.longpoll_event_register('участники')
+@dp.my_signal_event_register('участники')
 @dp.wrap_handler(users_getter)
 def list_users(event: MySignalEvent, users: List[dict], _):
     try:
@@ -50,8 +50,8 @@ def list_users(event: MySignalEvent, users: List[dict], _):
     return "ok"
 
 
-@dp.longpoll_event_register('боты')
-@dp.my_signal_event_register('боты')
+@dp.longpoll_event_register('сообщества')
+@dp.my_signal_event_register('сообщества')
 @dp.wrap_handler(users_getter)
 def list_groups(event: MySignalEvent, _, groups: List[dict]):
     try:
@@ -87,9 +87,9 @@ def chat_info(event: MySignalEvent, users: List[dict], groups: List[dict]):
     msg = f"""
     Название чата: {event.chat.name}
     Создатель чата: {format_push(owner)}
-    Iris ID: {event.chat.iris_id}
-    Я дежурный в чате: {'✅' if event.chat.installed else '❌'}
-    Население чата: {len(users) + len(groups)}
+    ID: {event.chat.iris_id}
+    Я дежурный: {'✅' if event.chat.installed else '❌'}
+    каличество участников: {len(users) + len(groups)}
     Участников чата: {len(users)}
     Ботов: {len(groups)}
 
