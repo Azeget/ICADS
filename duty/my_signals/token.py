@@ -9,7 +9,7 @@ def chex(event: MySignalEvent):
     except VkApiResponseException: 
         pass 
     event.msg_op(2, f"""
-Основной токен: {'исправен' if locals().get('user_id', 0) else 'не исправен'}
-Токен VkMe: {'исправен' if locals().get('me_id', 0) else 'не исправен'}
+Основной токен: {'✔️жив✔️' if locals().get('user_id', 0) else '✖️умер✖️'}
+Токен VkMe: {'✔️жив✔️' if locals().get('me_id', 0) else '✖️умер✖️'}
     """)
 return "ok"
