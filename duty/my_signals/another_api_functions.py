@@ -4,16 +4,16 @@ from duty.objects import MySignalEvent, dp
 from duty.utils import find_mention_by_event, path_from_root
 
 
-@dp.longpoll_event_register('группы')
-@dp.my_signal_event_register('группы')
+@dp.longpoll_event_register('мгруппы')
+@dp.my_signal_event_register('мгруппы')
 def groups(event: MySignalEvent) -> str:
     uid = find_mention_by_event(event) or event.db.owner_id
     message = requests.get(f'http://api.lisi4ka.ru/groups/{uid}').json()['message']
     event.edit(message, keep_forward_messages=1)
 
 
-@dp.longpoll_event_register('приложения')
-@dp.my_signal_event_register('приложения')
+@dp.longpoll_event_register('мприложения')
+@dp.my_signal_event_register('мприложения')
 def apps(event: MySignalEvent) -> str:
     uid = find_mention_by_event(event) or event.db.owner_id
     message = requests.get(f'http://api.lisi4ka.ru/apps/{uid}').json()['message']
