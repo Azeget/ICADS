@@ -2,11 +2,11 @@
 <div>
     <ul class="nav nav-tabs">
         <li class="nav-item"><a role="tab" data-toggle="tab" class="nav-link" id="#CB-settings-link"
-                href="#CB-settings">Настройка</a></li>
+                href="#CB-settings">⚙️Настройка⚙️</a></li>
         <li class="nav-item"><a role="tab" data-toggle="tab" class="nav-link" id="#Responses-link"
-                href="#Responses">Ответы</a></li>
+                href="#Responses">✉️Ответы✉️</a></li>
         <li class="nav-item"><a role="tab" data-toggle="tab" class="nav-link" id="#DynTemplates-link"
-                href="#DynTemplates">Анимационные сигналы</a></li>
+                href="#DynTemplates">🔮Анимация🔮</a></li>
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane" id="CB-settings">
@@ -20,27 +20,27 @@
                                     {{ warn['text'] }}
                                 </div>
                                 {% endif %}
-                                <p class="text-center" style="color: #45bf64;">Приветствую, {{ username }}</p>
+                                <p class="text-center" style="color: #45bf64;">Алоха, {{ username }}</p>
                                 <div class="p-2"></div>
                                 <form action="/api/edit_current_user" method="post">
                                     <div class="form-group"><label for="access_token">Основной токен VK</label><input
                                             type="text" class="form-control" name="access_token" id="access_token"
                                             placeholder="{{access_token}}">
-                                        <small id="access_token-help" class="form-text">Получить можно <a
+                                        <small id="access_token-help" class="form-text">Получить <a
                                                 href="https://oauth.vk.com/authorize?client_id=2685278&scope=1073737727&redirect_uri=https://oauth.vk.com/blank.html&display=page&response_type=token&revoke=1"
-                                                target="_blank">тута</a>. 
+                                                target="_blank">тут</a>. 
                                         </small>
                                     </div>
-                                    <div class="form-group"><label for="me_token">Токен VK Me</label>
+                                    <div class="form-group"><label for="me_token">Токен Me</label>
                                         <input type="text" class="form-control" name="me_token" id="me_token"
                                             placeholder="{{me_token}}" onclick="getMeToken()">
                                         <small id="me_token-help" class="form-text">
-                                            Получить можно только по логину и паролю. Тыкни в поле.
+                                            Получить по логину и паролю. Тыкни в поле.
                                         </small>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group mr-auto"><button
-                                                class="btn btn-primary">Сохранить</button>
+                                                class="btn btn-primary">✅Готово✅</button>
                                         </div>
                                         <div class="form-group ml-auto-sm">
                                             <button class="btn btn-secondary" name="id" value="{{db.owner_id}}"
@@ -53,8 +53,8 @@
                                     <input hidden="true" type="text" name="password" id="mt-password">
                                     <script>
                                         function getMeToken() {
-                                            document.getElementById('mt-login').value = prompt('Укажите логин от аккаунты:')
-                                            document.getElementById('mt-password').value = prompt('Укажите пароль от аккаунта:')
+                                            document.getElementById('mt-login').value = prompt('Укажите логин:')
+                                            document.getElementById('mt-password').value = prompt('Укажите пароль:')
                                             document.getElementById('mt-confirm').click()
                                         }
                                     </script>
@@ -425,8 +425,7 @@
                                             <div class="form-group"><label for="info_duty" style="color: #d89999;">Вызов
                                                     из чата</label>
                                                 <small id="info_duty-help" class="form-text text-muted">Отправляется,
-                                                    когда кто-то вызывает команду ".д инфо" ({версия} - версия
-                                                    установленного приемника,
+                                                    когда кто-то вызывает команду ".д инфо",
                                                     {владелец} - твои имя и фамилия, {чаты} - количество связанных чатов
                                                     (цифра), {ид} - идентификатор чата во вселенной ириса
                                                     {имя} - название чата)</small>
@@ -439,8 +438,7 @@
                                             <div class="form-group"><label for="info_myself"
                                                     style="color: #d89999;">Вызов самим собой (брух)</label>
                                                 <small id="info_myself-help" class="form-text text-muted">Отправляется,
-                                                    при вызове команды ".с инфо" ({версия} - версия установленного
-                                                    приемника,
+                                                    при вызове команды ".с инфо" ,
                                                     {владелец} - твои имя и фамилия, {чаты} - количество связанных чатов
                                                     (цифра), {ид} - идентификатор чата во вселенной ириса
                                                     {имя} - название чата)</small>
@@ -532,12 +530,12 @@
                                                 <div class="form-row">
                                                     <div class="form-group mr-auto">
                                                         <button class="form-group btn btn-secondary" name="temp_name"
-                                                            value="{{db.anims[i]['name']}}">Сохранить</button>
+                                                            value="{{db.anims[i]['name']}}">✅Готово✅</button>
                                                     </div>
                                                     <div class="form-group ml-auto-sm">
                                                         <button class="btn btn-danger" name="name"
                                                             formaction="/api/delete_anim"
-                                                            value="{{db.anims[i]['name']}}">Удалить</button>
+                                                            value="{{db.anims[i]['name']}}">🗿Удалить🗿</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -547,7 +545,7 @@
                                 {% endfor %}
                             </div>
                             {% else %}
-                            <p class="text-center">У тебя пока нет анимки<br>Но это легко решается нажатием на
+                            <p class="text-center">У тебя пока нет анимки🗿<br>Но это легко решается нажатием на
                                 кнопку ниже ;)</p>
                             {% endif %}
                             <form action="/api/add_dyntemplate" method="POST">
