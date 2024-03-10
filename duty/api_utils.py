@@ -22,7 +22,7 @@ def get_msgs(peer_id, api: VkApi, offset = 0):
 def set_online_privacy(db, mode = 'only_me'):
     url = ('https://api.vk.com/method/account.setPrivacy?v=5.109&key=online&value=%s&access_token=%s'
     % (mode, db.me_token))
-    r = requests.get(url, headers = {"user-agent": "VKAndroidApp/1.123-123 (Android 123; SDK 123; IrCA; 1; ru; 123x123)"}).json()
+    r = requests.get(url, headers = {"user-agent": "VKAndroidApp/1.123-123 (Android 123; SDK 123; BOTS; 1; ru; 123x123)"}).json()
     if r['response']['category'] == mode:
         return True
     else:
