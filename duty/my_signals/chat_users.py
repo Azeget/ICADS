@@ -43,9 +43,9 @@ def list_users(event: MySignalEvent, users: List[dict], _):
     for i, user in enumerate(users[page*20:page*20+20], 1 + page*20):
         msg += f"\n{i}. [id{user['id']}|{user['first_name']} {user['last_name']}]"  # noqa
     if msg == '':
-        msg = f'Страница {page + 1} пуста'
+        msg = f'ℹ️Страница {page + 1} пуста'
     else:
-        msg = f'Участники беседы (страница {page + 1} из {pages}):' + msg
+        msg = f'👥Участники беседы (страница {page + 1} из {pages}):' + msg
     event.msg_op(1, msg, disable_mentions=1, reply_to=event.msg['id'])
     return "ok"
 
@@ -66,9 +66,9 @@ def list_groups(event: MySignalEvent, _, groups: List[dict]):
     for i, group in enumerate(groups[page*20:page*20+20], 1 + page*20):
         msg += f"\n{i}. [public{group['id']}|{group['name']}]"
     if msg == '':
-        msg = f'Страница {page + 1} пуста'
+        msg = f'ℹ️Страница {page + 1} пуста'
     else:
-        msg = f'Группы беседы (страница {page + 1} из {pages}):' + msg
+        msg = f'👥Группы беседы (страница {page + 1} из {pages}):' + msg
     event.msg_op(2, msg)
     return "ok"
 
@@ -85,15 +85,17 @@ def chat_info(event: MySignalEvent, users: List[dict], groups: List[dict]):
         elif member.get('is_admin') is True:
             admins.append('\n-- ' + format_push(member))
     msg = f"""
-    Название чата: {event.chat.name}
-    Создатель чата: {format_push(owner)}
-    ID: {event.chat.iris_id}
-    Я дежурный: {'✅' if event.chat.installed else '❌'}
-    каличество участников: {len(users) + len(groups)}
-    Участников чата: {len(users)}
-    Ботов: {len(groups)}
+    🤴Создатель чата: {format_push(owner)}
+    📄Название чата: {event.chat.name}
+    ℹ️ID: {event.chat.iris_id}
+    
+    👥каличество участников: {len(users) + len(groups)}
+    👤Участников чата: {len(users)}
+    🤖Ботов: {len(groups)}
 
-    Админы чата:{''.join(admins) if admins else ' НЕМА'}
+    👨‍💻Я дежурный: {'✅' if event.chat.installed else '❌'}
+
+    💎Админы чата:{''.join(admins) if admins else ' НЕМА'}
     """.replace('    ', '')
     event.msg_op(1, msg, disable_mentions=1, reply_to=event.msg['id'])
     return "ok"
