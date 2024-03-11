@@ -3,8 +3,8 @@ from duty.utils import find_mention_by_event
 from microvk import VkApiResponseException
 
 
-@dp.longpoll_event_register('юинфо', 'кто ты')
-@dp.my_signal_event_register('юинфо', 'кто ты')
+@dp.longpoll_event_register('юинфо', 'ктоты')
+@dp.my_signal_event_register('юинфо', 'ктоты')
 def change_friend_status(event: MySignalEvent) -> str:
     user_id = find_mention_by_event(event)
     if user_id:
