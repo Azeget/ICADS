@@ -69,7 +69,7 @@ def mention_search(event: MySignalEvent):
     if not msg_ids:
         msg = 'Ничего не нашел 😟'
     else:
-        msg = 'Собсна, вот что нашел за последние 24 часа:'
+        msg = '🔍Собсна, вот что нашел за последние 24 часа:'
 
     event.msg_op(1, msg, forward_messages=','.join(msg_ids))
     return "ok"
