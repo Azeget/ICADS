@@ -1,10 +1,10 @@
-from duty.objects import dp, MySignalEvent
+эfrom duty.objects import dp, MySignalEvent
 from duty.utils import find_mention_by_event
 from microvk import VkApiResponseException
 
 
-@dp.longpoll_event_register('юинфо', 'юзеринфо')
-@dp.my_signal_event_register('юинфо', 'юзеринфо')
+@dp.longpoll_event_register('юинфо', 'кто ты')
+@dp.my_signal_event_register('юинфо', 'кто ты')
 def change_friend_status(event: MySignalEvent) -> str:
     user_id = find_mention_by_event(event)
     if user_id:
