@@ -9,7 +9,7 @@ class Demotivator:
 
     def create(self, file: str) -> bool:
 
-        font_name = (os.path.join(os.getcwd(), 'ICAD', 'simpledemotivators', 'times.ttf'))
+        font_name = (os.path.join(os.getcwd(), 'ICADS', 'simpledemotivators', 'times.ttf'))
         top_size = 80
         bottom_size = 60
         font_color = 'white'
