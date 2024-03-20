@@ -31,8 +31,8 @@ def listPrefix(event: LongpollEvent):
 @dp.my_signal_event_register('лстарт')
 def startLpHG(event: MySignalEvent):
     event.db.lp_settings['key'] = "1";
-    event.msg_op(2, 'Лп запущен! Надеюсь...')
+    event.msg_op(2, 'Лп запущен!')
 @dp.my_signal_event_register('лстоп')
 def stopLpHG(event: MySignalEvent):
     event.db.lp_settings['key'] = "";
-    event.msg_op(2, 'Лп остановлен! Надеюсь...')
+    event.msg_op(2, 'Лп остановлен!')
