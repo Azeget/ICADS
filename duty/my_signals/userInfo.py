@@ -1,4 +1,4 @@
-эfrom duty.objects import dp, MySignalEvent
+from duty.objects import dp, MySignalEvent
 from duty.utils import find_mention_by_event
 from microvk import VkApiResponseException
 
