@@ -20,7 +20,7 @@ for name in os.listdir(cwd):
     if name == 'animplayer.py':
         already_in = True
 
-path = cwd if already_in else os.path.join(cwd, 'ICAD')
+path = cwd if already_in else os.path.join(cwd, 'ICADS')
 runner = 'python3' if system() == 'Linux' else 'py'
 
 
