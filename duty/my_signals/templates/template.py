@@ -109,7 +109,7 @@ def template_create(event: MySignalEvent) -> str:
         "attachments": event.attachments
     })
 
-    event.msg_op(2, f'✅ Шаблон "{name}" ' +
+    event.msg_op(2, f'🖊 Шаблон "{name}" ' +
                  ("перезаписан" if exist else "сохранен"), delete=2)
     return "ok"
 
@@ -137,7 +137,7 @@ def get_name(event: MySignalEvent) -> Tuple[MySignalEvent, str]:
 def template_delete(event: MySignalEvent, name: str) -> str:
     event.db.templates, exist = delete_template(name, event.db.templates)
     if exist:
-        msg = f'✅ Шаблон "{name}" удален'
+        msg = f'🖊 Шаблон "{name}" удален'
     else:
         msg = f'⚠️ Шаблон "{name}" не найден'
     event.msg_op(2, msg, delete=1)
