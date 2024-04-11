@@ -47,7 +47,7 @@ def ban_user(event: MySignalEvent) -> str:
         if event.command == '+чс':
             try:
                 if event.api('account.ban', owner_id=user_id) == 1:
-                    msg = '😡 Заблокеровал'
+                    msg = '😡 Пользователь -> заблокерован'
             except VkApiResponseException as e:
                 if e.error_msg.endswith('already blacklisted'):
                     msg = '❗ Пользователь уже в бане'
@@ -56,7 +56,7 @@ def ban_user(event: MySignalEvent) -> str:
         else:
             try:
                 if event.api('account.unban', owner_id = user_id) == 1:
-                    msg = '💚 Разблокеровал'
+                    msg = '💚 Пользователь -> разблокерован'
             except VkApiResponseException as e:
                 if e.error_msg.endswith('not blacklisted'):
                     msg = '👌🏻 Пользователь не в бане'
