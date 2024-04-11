@@ -20,7 +20,7 @@ def change_friend_status(event: MySignalEvent) -> str:
             xml = response.text
             soup = bs4.BeautifulSoup(xml, 'lxml')
             created = soup.find('ya:created').get('dc:date')
-            rDate=f'⌚ Дата регистрации: {created[8:10]}.{created[5:7]}.{created[0:4]}'
+            rDate=f'🗓 Дата регистрации: {created[8:10]}.{created[5:7]}.{created[0:4]}'
         except: ''
         okInfo = False
         try:
@@ -46,21 +46,21 @@ def change_friend_status(event: MySignalEvent) -> str:
             msg = f"""
 Информация о {info['first_name_abl']} {info['last_name_abl']}, {'Online' if info['online']==1 else 'Offline'}, {last_seen}
 
-⚙ ID: {info['id']}
-⚙ Короткая ссылка: {info['screen_name']}
-⚙ Имя: {info['first_name']}
+🆔️: {info['id']}
+⚜️ Короткая ссылка: {info['screen_name']}
+⚙️ Имя: {info['first_name']}
 ⚙ Фамилия: {info['last_name']}
 👥 Кол-во друзей: {count_friends}
 {rDate}
 🎉 Дата рождение: {info['bdate'] if 'bdate' in info else 'Скрыто 🔒.'}
 🌆 Город: {info['city']['title'] if 'city' in info else 'Не указан.'}
-👻 Друзья: {friend_status}
+👨‍💼 Друзья: {friend_status}
 ✍🏻 Подписчики: {count_followers}
 👨 Пол: {sex}
 🔒 Закрытый прoфиль: {is_closed}
 💬 Статус: {info['status']}
-⛔ Я в чс: {blacklisted}
-⛔ Он в чс: {blacklisted_by_me}
+🚫 Я в чс: {blacklisted}
+🚫 Он в чс: {blacklisted_by_me}
 📷 Фото: {event.api('utils.getShortLink',url=info['photo_max_orig'])['short_url']}
 """
         except VkApiResponseException as e:
