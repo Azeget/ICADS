@@ -37,7 +37,7 @@ def get_last_version() -> Tuple[str, str]:
 
 @dp.my_signal_event_register('обновить')
 def start_update(event: MySignalEvent):
-    event.msg_op(2, '⏱ Начинаю процесс обновления...' if PA else
+    event.msg_op(2, '⏱ Начинаю сверку кода....' if PA else
                     '\nРабота не на pythonanywhere не гарантируется')
     with open(os.path.join(path, "updater.py"), 'w', encoding="utf-8") as data:
         data.write(get_updater(event.db.access_token, event.msg['id'], event.chat.peer_id))
@@ -51,7 +51,7 @@ def start_update(event: MySignalEvent):
 
 def get_updater(token: str, message_id: int, peer_id: int):
     if PA:
-        msg = '✅ Ок, не трогай сервер секунд пять...'
+        msg = '✅ Код сверен и обновлен...'
     else:
         msg = '✅ Перезапусти скрипт'
     return """
@@ -70,7 +70,7 @@ for cmd in commands:
     if subprocess.run(cmd, shell=True).returncode != 0:
         fail = True
 if fail:
-    edit('❌ Помянем (скинь update.log из рабочей директории)')
+    edit('❌ Помянем')
 else:
     edit('%s')
 def get_last_version():
