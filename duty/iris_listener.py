@@ -24,7 +24,7 @@ def callback():
     elif type(d) == dict:
         return json.dumps(d, ensure_ascii=False)
     else:
-        return r"ОШИБОЧКА , ПОПРОБУЙ ОБРАТИТСЯ В ЧАТ ТП" + '\n' + d
+        return r"\\ОШИБОЧКА//" + '\n' + d
 
 
 @app.errorhandler(ExceptToJson)
