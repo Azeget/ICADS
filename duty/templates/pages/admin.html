@@ -4,9 +4,9 @@
         <li class="nav-item"><a role="tab" data-toggle="tab" class="nav-link" id="#CB-settings-link"
                 href="#CB-settings">⚙️Настройка⚙️</a></li>
         <li class="nav-item"><a role="tab" data-toggle="tab" class="nav-link" id="#Responses-link"
-                href="#Responses">✉️Ответы✉️</a></li>
+                href="#Responses">Ответы</a></li>
         <li class="nav-item"><a role="tab" data-toggle="tab" class="nav-link" id="#DynTemplates-link"
-                href="#DynTemplates">🔮Анимация🔮</a></li>
+                href="#DynTemplates">Анимация</a></li>
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane" id="CB-settings">
@@ -20,10 +20,10 @@
                                     {{ warn['text'] }}
                                 </div>
                                 {% endif %}
-                                <p class="text-center" style="color: #45bf64;">Алоха, {{ username }}</p>
+                                <p class="text-center" style="color: #45bf64;">Hi, {{ username }}</p>
                                 <div class="p-2"></div>
                                 <form action="/api/edit_current_user" method="post">
-                                    <div class="form-group"><label for="access_token">Основной токен VK</label><input
+                                    <div class="form-group"><label for="access_token">Основной токен </label><input
                                             type="text" class="form-control" name="access_token" id="access_token"
                                             placeholder="{{access_token}}">
                                         <small id="access_token-help" class="form-text">Получить <a
@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group mr-auto"><button
-                                                class="btn btn-primary">✅Готово✅</button>
+                                                class="btn btn-primary">Готово</button>
                                         </div>
                                         <div class="form-group ml-auto-sm">
                                             <button class="btn btn-secondary" name="id" value="{{db.owner_id}}"
